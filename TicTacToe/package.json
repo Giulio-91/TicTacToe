@@ -1,32 +1,31 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "less": "^3.0.4",
-    "node-sass-chokidar": "^1.2.2",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4",
-    "semantic-ui-react-less-loader": "^0.2.0"
-  },
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "main": "/src/index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "build-css": "less-watch-compiler --run-once --main-file=index.less src/less/ src/less/",
-    "watch-css": "npm run build-css && less-watch-compiler --main-file=index.less src/less/ src/less/"
+    "eject": "react-scripts eject"
   },
-  "devDependencies": {
-    "less-watch-compiler": "^1.11.2",
-    "semantic-ui-less": "^2.3.1",
-    "semantic-ui-react": "^0.80.0",
-    "style-loader": "^0.21.0"
+  "author": "GiulianDev",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "^5.0.1"
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
-  "main": "index.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
