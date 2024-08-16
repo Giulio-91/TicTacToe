@@ -1,0 +1,19 @@
+.start {
+  height: 5rem;
+  width: 20%; /* Larghezza al 20% su desktop */
+  z-index: 9999;
+}
+
+/* Media query per tablet (larghezza compresa tra 769px e 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .start {
+      width: 40%; /* Larghezza al 40% su tablet */
+  }
+}
+
+/* Media query per smartphone (larghezza pari o inferiore a 768px) */
+@media (max-width: 768px) {
+  .start {
+      width: 50%; /* Larghezza al 50% su smartphone */
+  }
+}
