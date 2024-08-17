@@ -18,10 +18,11 @@ import { Start } from './start/start';
 export default function Game() {
   // CONSTANTS
   const [gameStarted, setGameStarted] = useState(false);
-  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [history, setHistory] = useState([Array(9).fill(null)]); // array with the current squares state (null, 'X' or 'O')
   const [currentMove, setCurrentMove] = useState(0); // keep track of which step the user is currently viewing
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
+  // list of move
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
@@ -37,10 +38,19 @@ export default function Game() {
     );
   });
 
+  /**
+   * When a player click on a square,
+   * the history array is update adding the current situation
+   * and the currentMove is update with the index of the current move
+   * 
+   * @param {*} nextSquares 
+   */
   function handlePlay(nextSquares) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
+    console.log('History: ', history);
+    console.log('Current move: ', currentMove);
   }
 
   /**
