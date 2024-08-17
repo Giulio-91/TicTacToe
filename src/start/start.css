@@ -2,6 +2,7 @@
   height: 5rem;
   width: 20%; /* Larghezza al 20% su desktop */
   z-index: 9999;
+  margin-bottom: 2rem;
 }
 
 /* Media query per tablet (larghezza compresa tra 769px e 1024px) */

@@ -2,13 +2,12 @@
  * Square with callback
  */
 
-import "./start.css";
+import './start.css';
 
-export function Start({onStartClick}) {
-    
-    return (
-        <button className="start" onClick={onStartClick}>
-            START
-        </button>
-    );
+export function Start({ onStartClick }) {
+  return (
+    <button className="start" onClick={onStartClick}>
+      PLAY
+    </button>
+  );
 }

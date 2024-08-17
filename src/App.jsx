@@ -79,6 +79,7 @@ export default function Game() {
   } else {
     return (
       <div className="game">
+        <div className='title'>TicTacToe</div>
         <Start onStartClick={() => setGameStarted(true)} />
       </div>
     );
