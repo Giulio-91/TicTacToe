@@ -17,8 +17,33 @@ import { Square } from '../square/square';
 export function Board({ xIsNext, squares, onPlay }) {
   // CONSTANTS
   const winner = calculateWinner(squares);
-   
-  let status = winner == null ? ('Next player: ' + (xIsNext ? 'X' : 'O')) : ('Winner: ' + winner);
+  const nextPlayer = xIsNext ? 'Player 1' : 'Player 2';
+  const currentPlayer = !xIsNext ? 'Player 1' : 'Player 2';
+  let status =
+    winner == null ? 'Next player: ' + nextPlayer : 'Winner: ' + currentPlayer;
+
+  // GENERATE BOARD
+  const boardRows = [];
+  for (let i = 0; i < 3; i++) {
+    // Ciclo per le righe
+    const row = [];
+    for (let j = 0; j < 3; j++) {
+      // Ciclo per le colonne
+      const index = i * 3 + j; // Calcola l'indice del quadrato corrente
+      row.push(
+        <Square
+          key={index} // Chiave unica per ogni Square
+          value={squares[index]}
+          onSquareClick={() => handleClick(index)}
+        />
+      );
+    }
+    boardRows.push(
+      <div key={i} className="board-row">
+        {row}
+      </div>
+    );
+  }
 
   /**
    *
@@ -29,8 +54,13 @@ export function Board({ xIsNext, squares, onPlay }) {
    * Avoiding direct data mutation lets you keep previous versions of the data intact, and reuse them later.
    */
   function handleClick(idx) {
-    if (squares[idx] || winner) {
-      return; // square already clicked => do nothing
+    if (squares[idx]) {
+      // square already clicked => do nothing
+      return;
+    }
+    if (winner) {
+      // someone win
+      return;
     }
     const nextSquares = squares.slice();
     nextSquares[idx] = xIsNext ? 'X' : 'O';
@@ -70,21 +100,7 @@ export function Board({ xIsNext, squares, onPlay }) {
   return (
     <div>
       <div className="status">{status}</div>
-      <div className="board-row">
-        <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
-        <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
-        <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
-      </div>
-      <div className="board-row">
-        <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
-        <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
-        <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
-      </div>
-      <div className="board-row">
-        <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
-        <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
-        <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
-      </div>
+      {boardRows}
     </div>
   );
 }
