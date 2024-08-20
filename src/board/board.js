@@ -9,10 +9,10 @@
 * DO NOT USE "onSquareClick={handleClick(0)}"
 */
 
+import { Square } from '../square/Square.js';
 import './board.css';
 
 // COMPONENTS
-import { Square } from '../square/square';
 
 export function Board({ xIsNext, squares, onPlay }) {
   // CONSTANTS

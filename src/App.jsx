@@ -12,7 +12,7 @@
 import { useState } from 'react';
 
 // COMPONENTS
-import { Board } from './board/board';
+import { Board } from './board/Board.js';
 import { Start } from './start/start';
 
 export default function Game() {
